@@ -2,33 +2,29 @@
 
 Issues and PRs are always welcome!
 
-### Code coverage
+## Code coverage
 
 [HGInsights](https://github.com/HGInsights) shoots for 100% coverage (via
-[`:excoveralls`](https://github.com/parroty/excoveralls)), but we always allow
+[`excoveralls`](https://github.com/parroty/excoveralls)), but we always allow
 ignoring lines or blocks of code that would either be impractical to test
 or would consume too much of your time to do so (your time is valuable :).
 In those cases, we strongly prefer using comment-style ignores, like so:
 
 ```elixir
-# N.B.: to get coverage on this block, we'd have to brutally kill the HTTP
+# To get coverage on this block, we'd have to brutally kill the HTTP
 # server, which we need to be running for other tests to pass
 # coveralls-ignore-start
 def handle_event(%ServerDisconnect{}, state) do
   {:stop, {:shutdown, :disconnected}, state}
 end
-
 # coveralls-ignore-stop
 ```
 
 With a helpful comment explaining why this case is too tough to test.
 
-<details>
-<summary><b>Please do not use coveralls' skip_files feature</b></summary>
-<br>
+### Please do not use coveralls' skip_files feature
 
-Coveralls also allows ignoring by adding file patterns to the `coveralls.json`
-file:
+Coveralls allows ignoring by adding file patterns to the `coveralls.json` file:
 
 ```json
 {
@@ -48,11 +44,7 @@ But in our experience, this only leads to confusion over why a file is not
 being reported in the coverage detail. If an entire module needs to be ignored,
 we prefer wrapping the entire `defmodule/2` call in ignore comments.
 
-</details>
-
-<details>
-<summary><b>Why we shoot for 100% coverage</b></summary>
-<br>
+### Why we shoot for 100% coverage
 
 Shooting for 100% code coverage is a bit controversial. Proponents sometimes
 claim: "if the line isn't covered why do you need it?" Critics often accuse
@@ -70,9 +62,8 @@ could change whether or not a project meets the requirement, even assuming
 all _new_ code is merged at 100% coverage, simply because the denominator of
 `covered_lines / total_lines` changes.
 
-</details>
 
-### Formatting
+## Formatting
 
 We use the Elixir formatter introduced in Elixir 1.6 in check-mode as a part
 of CI. Some editors have supported formatting before _the_ formatter was
@@ -82,15 +73,13 @@ use of the `locals_without_parens` option, which some formatting extensions
 ignore. A simple run of `mix format` on the command line before committing
 is always wise.
 
-### Linting
+## Linting
 
 We use two tools for linting: `mix compile --warnings-as-errors` and
 [`credo`](https://github.com/rrrene/credo). Either of these checks failing to
 pass will fail the CI, even for test files.
 
-<details>
-<summary><b>Why so stringent about test files?</b></summary>
-<br>
+### Why so stringent about test files?
 
 It may seem overzealous to care so much about the linting and formatting of
 test files. They're just tests, right?
@@ -102,11 +91,10 @@ a community of fast-moving feature implementations and quick maintenance.
 Therefore we treat the readability and consistency of tests with paramount
 concern.
 
-</details>
 
-### Bless
+## Bless
 
-To pull all of these checks together for development, we the a
+To pull all of these checks together for development, we the
 [`bless`](https://github.com/NFIBrokerage/bless) library which runs all commands
 in serial and fails if any check fails. A successful run of `mix bless`
 before committing usually translates into a green check mark from the CI.

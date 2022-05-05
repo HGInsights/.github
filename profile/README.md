@@ -3,7 +3,7 @@
 We are `@HGInsights`, a team of developers working at [HG Insights][hginsights]. We're building a platform to surface data-driven actionable insights with:
 
 - ⚗️ Elixir
-- 🔥 Phoenix and LiveView
+- 🔥 Phoenix, React, and sometimes LiveView
 - ❄️ Snowflake
 
 Check out some of our [open source libraries][hgorg]!
