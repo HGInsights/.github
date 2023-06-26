@@ -1,4 +1,4 @@
-# Contributing
+fine# Contributing
 
 Issues and PRs are always welcome!
 
@@ -92,11 +92,10 @@ Therefore we treat the readability and consistency of tests with paramount
 concern.
 
 
-## Bless
+## Quick Check
 
-To pull all of these checks together for development, we the
-[`bless`](https://github.com/NFIBrokerage/bless) library which runs all commands
-in serial and fails if any check fails. A successful run of `mix bless`
-before committing usually translates into a green check mark from the CI.
-If you cannot get a good bless run, submit the PR anyways! We'll be happy to
-help you get that green check mark.
+To pull all of these checks together for development, we define a mix 
+alias which runs all commands in serial and fails if any check fails. 
+A successful run of `mix qc` before committing usually translates into a 
+green check mark from the CI. If you cannot get a good quick check run, 
+submit the PR anyways! We'll be happy to help you get that green check mark.
