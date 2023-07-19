@@ -1,4 +1,4 @@
-fine# Contributing
+# Contributing
 
 Issues and PRs are always welcome!
 
